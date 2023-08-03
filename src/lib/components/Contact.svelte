@@ -52,4 +52,10 @@
         transform: scale(1.02);
         background: linear-gradient(90deg, rgb(8, 153, 211), rgba(120, 82, 209, 0.986));
     }
+
+    @media (max-width: 400px) {
+        a {
+            font-size: 1rem !important;
+        }
+    }
 </style>

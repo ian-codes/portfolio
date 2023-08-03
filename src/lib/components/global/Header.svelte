@@ -19,20 +19,25 @@
 
 
 <header>
-    <button on:click={() => burgerOpen = !burgerOpen} on:keydown={() => burgerOpen = !burgerOpen} 
-        class="burger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+    <div>
+        <button on:click={() => burgerOpen = !burgerOpen} on:keydown={() => burgerOpen = !burgerOpen} 
+            class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    
+        <div class="logoWrapper">
+            <a id="logo" href="/" title="home">
+                ian-codes
+            </a>
+        </div>
 
-    <div class="logoWrapper">
-        <a id="logo" href="/" title="home">
-            ian-codes
-        </a>
+        <div class="placeholder"></div>
     </div>
 
- 
+
+
     <nav class="{burgerOpen ? "open" : ""}">
         <ol>
             <li class="menuItem">
@@ -91,7 +96,6 @@
     }
 
     header {
-        height: 60px;
         position: relative;
         display: flex;
         align-items: center;
@@ -100,7 +104,6 @@
         margin: 0 auto;
         max-width: 1100px;
         width: 100%;
-        margin-bottom: 4em;
     }
 
     nav {
@@ -157,24 +160,37 @@
         header {
             justify-content: start;
             gap: 1em;
+            flex-direction: column;
+            padding: 1em;
         }
 
         nav {
             display: none;
             flex-direction: column;
-            position: absolute;
-            right: 0;
-            top: 6rem;
+            position: relative;
             width: 100%;
             border-radius: 1em;
-            padding: 1em;
         }
 
-        .logoWrapper {
+        header > div {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             width: 100%;
+        }
+
+        .menuItemLink {
+            text-decoration: none;
+            letter-spacing: 1px;
+            color: white;
+            padding: 0 !important;
+            border-radius: .5em;
+            transition: all .2s ease;
+        }
+
+        .menuItemLink:hover, .active {
+            background: none !important;
+            color: white !important;
         }
 
         .open {

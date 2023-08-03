@@ -7,16 +7,16 @@
 
 
 <section>
-    <h2>
+    <h1>
         <a href="#web-design">
-            Web Design & -Development 
+            Web Design & <wbr>-Development
         </a>
 
         <a href="https://kilendra.ch" target="_blank" title="kilendra.ch">
             <span>Digital Marketing</span>
             <div class="linkImg"></div>
         </a>
-    </h2>
+    </h1>
 </section>
 
 <WebDev />
@@ -33,7 +33,7 @@
         margin-top: 5em;
     }
 
-    h2 {
+    h1 {
         text-transform: uppercase;
         height: 100%;
         font-size: 3em;
@@ -43,6 +43,7 @@
         display: flex;
         flex-direction: column;
         gap: 2em;
+        word-break: normal;
     }
 
     a {
@@ -74,8 +75,23 @@
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
-        width: 50px;
-        height: 50px;
+        min-width: 1em;
+        min-height: 1em;
+        width: 1em;
+        height: 1em;
         filter: invert(1);
-}
+    }
+
+    @media (max-width: 1080px) {
+        h1 {
+            font-size: 2em;
+        }
+    }
+
+    @media (max-width: 400px) {
+        h1 {
+            font-size: 1rem;
+            text-align: start;
+        }
+    }
 </style>
