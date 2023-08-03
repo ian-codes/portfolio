@@ -3,11 +3,11 @@
     <h2>Web Design & -Development</h2>
 
     <h3>
-        Einzigartige Webseiten mit Fokus auf Detail
+        Einzigartige Webseiten mit Fokus auf Details
     </h3>
     <div>
         <p>
-            Beim kreieren von Webseiten lege ich hohen Wert auf folgenden Aspekte:
+            Beim kreieren von Webseiten lege ich hohen Wert auf folgende Aspekte:
         </p>
 
         <ol>
