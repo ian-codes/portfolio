@@ -51,24 +51,11 @@ main {
     gap: 4em;
 }
 
-
-h2 {
-    font-family: Arial;
+a {
+    text-decoration: none;
     color: white;
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    letter-spacing: 8px;
-    word-spacing: 5px;
-    font-weight: lighter;
-    margin-bottom: 1em;
-    position: relative;
-    opacity: 1;
 }
 
 button, a {
     transition: all .2s ease;
-}
-
-button:hover, a:hover {
-    box-shadow: 0 2px 0 2px var(--color-primary), 0 0 10px var(--color-primary);
 }

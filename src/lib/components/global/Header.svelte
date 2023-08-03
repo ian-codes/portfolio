@@ -4,7 +4,6 @@
 
     let burgerOpen = false;
 
-    import {NavigationData} from "$lib/navigation.js";
 
     function handleMenuClick(name) {
         openedSubmenu = name != openedSubmenu ? name : ""
@@ -36,33 +35,21 @@
  
     <nav class="{burgerOpen ? "open" : ""}">
         <ol>
-            {#each Object.keys(NavigationData) as menuItem}
+            <li class="menuItem">
+                <a class="menuItemLink" href="#web-design">Web Design</a>
+            </li>
 
-                {#if NavigationData[menuItem] == ""}
+            <li class="menuItem">
+                <a class="menuItemLink" href="#digital-marketing">Digital Marketing</a>
+            </li>
 
-                    <li class="menuItem">
-                        <a class="menuItemLink" href="{formatLink(menuItem)}">{menuItem}</a>
-                    </li>
+            <li class="menuItem">
+                <a class="menuItemLink" href="#about">Über mich</a>
+            </li>
 
-                {:else}
-                    <li class="menuItem">
-                        <a href="#" on:click={event => handleMenuClick(event.target.innerText)}
-                            class="menuItemLink {openedSubmenu == formatLink(menuItem) ? "active" : ""}">
-                            {menuItem}
-                        </a>
-
-                        <ol class="submenu {openedSubmenu != formatLink(menuItem) ? "closed" : ""}">
-                            {#each NavigationData[menuItem] as submenuItem}
-                                <li>
-                                    <a class="submenuItemLink" href="{formatLink(menuItem)}/{formatLink(submenuItem)}">{submenuItem}</a>
-                                </li>
-                            {/each}
-                        </ol>
-                    </li>
-
-                {/if}
-
-            {/each}
+            <li class="menuItem">
+                <a class="menuItemLink" href="#kontakt">Kontakt</a>
+            </li>
         </ol>
     </nav>
 </header>
