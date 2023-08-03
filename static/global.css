@@ -1,16 +1,11 @@
 @font-face {
-    font-family: 'Sulphur';
-    src: url('/fonts/Sulphur_Point/SulphurPoint-Regular.ttf') format('truetype');
+    font-family: 'Jost';
+    src: url('fonts/Jost.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'Cinzel';
-    src: url('/fonts/Cinzel/Cinzel-VariableFont_wght.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'DM Sans';
-    src: url('/fonts/DM_Sans/DMSans-Regular.ttf') format('truetype');
+    font-family: 'Shippori';
+    src: url('fonts/Shippori.ttf') format('truetype');
 }
 
 * {
@@ -29,6 +24,7 @@ html {
     --paragraph-fontsize: 1.6rem;
     --paragraph-fontsize-mobile: 1.2rem;
     --h2-fontsize: 3rem;
+    --color-primary: rgb(22, 208, 233);
     font-size: 16px;
 }
 
@@ -38,12 +34,11 @@ html {
 }
 
 body {
+    font-family: 'Jost', Arial;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: 'DM Sans', Arial;
-    color: white;
     min-height: 100vh;
     width: 100%;
 }
@@ -58,13 +53,22 @@ main {
 
 
 h2 {
-    font-size: 1.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: bold;
-    font-style: italic;
-    margin-bottom: 1em;
+    font-family: Arial;
     color: white;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    word-spacing: 5px;
+    font-weight: lighter;
+    margin-bottom: 1em;
     position: relative;
     opacity: 1;
+}
+
+button, a {
+    transition: all .2s ease;
+}
+
+button:hover, a:hover {
+    box-shadow: 0 2px 0 2px var(--color-primary), 0 0 10px var(--color-primary);
 }

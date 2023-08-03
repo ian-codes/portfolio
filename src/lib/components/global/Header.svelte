@@ -10,20 +10,30 @@
         openedSubmenu = name != openedSubmenu ? name : ""
         console.log(openedSubmenu)
     }
+
+    function formatLink(menuLink) {
+        let newLink = menuLink.replace(' ', '-').toLowerCase()
+        console.log(newLink)
+        return newLink
+    }
 </script>
 
 
 <header>
-    <div class="bg"></div>
-    <a href="/" title="home" class="logo-wrapper">
-        <div class="logo"></div>
-    </a>
     <button on:click={() => burgerOpen = !burgerOpen} on:keydown={() => burgerOpen = !burgerOpen} 
         class="burger">
         <span></span>
         <span></span>
         <span></span>
     </button>
+
+    <div class="logoWrapper">
+        <a id="logo" href="/" title="home">
+            ian-codes
+        </a>
+    </div>
+
+ 
     <nav class="{burgerOpen ? "open" : ""}">
         <ol>
             {#each Object.keys(NavigationData) as menuItem}
@@ -31,21 +41,20 @@
                 {#if NavigationData[menuItem] == ""}
 
                     <li class="menuItem">
-                        <a class="menuItemLink" href="{menuItem}">{menuItem}</a>
+                        <a class="menuItemLink" href="{formatLink(menuItem)}">{menuItem}</a>
                     </li>
 
                 {:else}
-
                     <li class="menuItem">
                         <a href="#" on:click={event => handleMenuClick(event.target.innerText)}
-                            class="menuItemLink {openedSubmenu == menuItem ? "active" : ""}">
+                            class="menuItemLink {openedSubmenu == formatLink(menuItem) ? "active" : ""}">
                             {menuItem}
                         </a>
 
-                        <ol class="submenu {openedSubmenu != menuItem ? "closed" : ""}">
+                        <ol class="submenu {openedSubmenu != formatLink(menuItem) ? "closed" : ""}">
                             {#each NavigationData[menuItem] as submenuItem}
                                 <li>
-                                    <a class="submenuItemLink" href="{menuItem}/{submenuItem}">{submenuItem}</a>
+                                    <a class="submenuItemLink" href="{formatLink(menuItem)}/{formatLink(submenuItem)}">{submenuItem}</a>
                                 </li>
                             {/each}
                         </ol>
@@ -57,22 +66,21 @@
         </ol>
     </nav>
 </header>
-<p>individuell, persönlich, engagiert</p>
 
 
 <style>
-    p {
-        width: 1000px;
+    #logo {
         color: white;
-        text-align: left;
-        letter-spacing: 4px;
-        word-spacing: 1em;
-        font-size: .9em;
-        font-style: italic;
-        opacity: .8;
-        margin: 1em auto;
-        padding: .5em;
-        background: linear-gradient(90deg, transparent 5%, rgba(255, 255, 255, 0.13), transparent);
+        text-decoration: none;
+        letter-spacing: 3px;
+        font-size: 2rem;
+        padding: 4px 12px;
+        border-radius: .5em;
+    }
+
+    #logo:hover {
+        color: black;
+        background: white;
     }
 
     .closed {
@@ -98,35 +106,14 @@
     header {
         height: 60px;
         position: relative;
-        max-width: calc(1100px - 4em);
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 2em;
+        padding: 3em 2em;
         margin: 0 auto;
-        background: white;
-        border-radius: 1em;
-    }
-
-    header::after {
-        box-shadow: 0 0 2px 1px rgba(255, 255, 255, 0.37), -1px -1px 10px inset rgba(143, 143, 143, 0.254), 0 5px 3px rgba(0, 0, 0, 0.466);
-        content: '';
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        border-radius: 1em;
-    }
-
-    .bg {
-        pointer-events: none;
-        background: linear-gradient(90deg, rgb(49, 145, 201), rgb(23, 156, 149));
-        inset: 0;
-        position: absolute;
-        left: 25%;
-        clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
-        z-index: 1;
-        border-top-right-radius: 1em;
-        border-bottom-right-radius: 1em;
+        max-width: 1100px;
+        width: 100%;
+        margin-bottom: 4em;
     }
 
     nav {
@@ -137,11 +124,7 @@
         display: flex;
         flex-direction: row;
         list-style: none;
-        gap: .5em;
-    }
-
-    li {
-        width: 100%;
+        gap: 2em;
     }
 
     .menuItem {
@@ -152,10 +135,13 @@
         text-decoration: none;
         letter-spacing: 1px;
         color: white;
-        /* text-transform: uppercase; */
         padding: .5em 1em;
         border-radius: .5em;
         transition: all .2s ease;
+    }
+
+    #logo, .menuItemLink, .submenuItemLink {
+        user-select: none;
     }
 
     .submenuItemLink {
@@ -164,7 +150,6 @@
         color: black;
         padding: 1em;
         transition: all .2s ease;
-        width: 100%;
     }
 
     .submenuItemLink:hover {
@@ -176,30 +161,32 @@
         color: black;
     }
 
-    .logo-wrapper {
-        padding: 0;
-        z-index: 3;
+    .burger {
+        display: none;
     }
 
-    .logo {
-        background: url('/logo.svg');
-        background-size: contain;
-        background-position: center;
-        background-position-y: 8px;
-        background-repeat: no-repeat;
-        width: 150px;
-        height: 40px;
-        padding: .5em;
-    }
 
     @media (max-width: 1200px) {
+        header {
+            justify-content: start;
+            gap: 1em;
+        }
+
         nav {
             display: none;
             flex-direction: column;
             position: absolute;
             right: 0;
-            top: 4rem;
-            background: black;
+            top: 6rem;
+            width: 100%;
+            border-radius: 1em;
+            padding: 1em;
+        }
+
+        .logoWrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
         }
 
@@ -209,28 +196,30 @@
 
         ol {
             flex-direction: column;
+            gap: 2em;
         }
+        
 
         .burger {
             background: none;
             border: none;
             margin: 0;
-            padding: 0;
+            width: 38px;
+            height: 34px;
+            padding: 4px;
             z-index: 1;
-            width: 30px;
-            height: 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-evenly;
-            gap: 5px;
+            justify-content: space-between;
             cursor: pointer;
         }
 
         .burger span {
             background: white;
-            height: 4px;
+            height: 2px;
             width: 100%;
+            margin: 3px 0;
         }
     }
 </style>

@@ -1,2 +1,18 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+
+<section>
+    <h2>
+        Freiheit der Kreativität im Internet
+    </h2>
+</section>
+
+<section>
+
+</section>
+
+
+<style>
+    h2 {
+        font-size: 9em;
+        letter-spacing: .1em;
+    }
+</style>

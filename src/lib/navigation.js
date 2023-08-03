@@ -1,16 +1,9 @@
 export const NavigationData = {
+    "Vision": "",
     "Dienstleistungen": [
-        "Abklärung",
-        "Ausbildungsplatz",
-        "Praktikumsplatz",
-        "Coaching",
-        "Arbeitsplatzvermittlung",
-        "Berufsberatung und Begleitung",
-        "AVANTOS Fachgruppen Schweiz",
-        "AVANTOS Autismus Schweiz"
+        "Web Development",
+        "Digital Marketing"
     ],
-    "Portrait": ["Warum mit Avantos?", "Team", "Timeline"],
-    "Kontakte": ["Bern", "Zurich", "Aarau", "Grabunden", "Basel", "Romand", "Autismus Schweiz"],
-    "News": "",
-    "Jobs": ""
+    "über mich": "",
+    "Kontakt": ""
 }
