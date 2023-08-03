@@ -71,7 +71,7 @@
     }
 
     .linkImg {
-        background: url('link.png');
+        background: url('/link.png');
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;

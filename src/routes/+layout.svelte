@@ -16,7 +16,7 @@
 
 <style>
     .bg {
-        background-image: url('mountain.webp');
+        background-image: url('/mountain.webp');
         background-size: cover;
         background-repeat: no-repeat;
         position: fixed;
